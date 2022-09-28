@@ -1,9 +1,17 @@
+mod formula;
+
 use pyo3::prelude::*;
+use formula::add_one;
 
 /// Formats the sum of two numbers as string.
 #[pyfunction]
 fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
     Ok((a + b).to_string())
+}
+
+#[pyfunction]
+fn sum_as_string_add_one(a: usize, b: usize) -> PyResult<String> {
+    Ok(add_one(a + b).to_string())
 }
 
 /// A Python module implemented in Rust.
